@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ICICI BANK</title>
+    <style>
+        .hclass{
+            text-align:center;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #218838;
+        }
+        p {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px; /* Adjust margin top as needed */
+        }
+        .back-link:hover {
+            background-color: #45a049;
+        }
+        /* Center-align anchor tag */
+        .centered-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px; /* Adjust margin top as needed */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="hclass">Enter details to generate customer ID</h1>
+    <form method="post" id="inputForm">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    {% if cus_id %}
+        <p>Your Account number is {{ cus_id }}</p>
+        <a href="{% url 'open_savings_account' cus_id %}" class="back-link centered-link">Proceed to the Account</a>
+    {% endif %}
+</body>
+</html>

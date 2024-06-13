@@ -1,0 +1,73 @@
+<!-- templates/app6/success.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ICICI Account Creation Successful</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .customer-info {
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+        }
+        .customer-info p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .back-link {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .back-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Account Creation Successful</h1>
+        
+        <div class="customer-info">
+            <p><span class="highlight">Customer ID:</span> {{ customer.customer_id }}</p>
+            <p><span class="highlight">Name:</span> {{ customer.firstname }} {{ customer.lastname }}</p>
+            <p><span class="highlight">Account Type:</span> {{ account.account_type }}</p>
+            <p><span class="highlight">Amount:</span> Rs. {{ account.balance }}</p>
+        </div>
+        
+    </div>
+</body>
+</html>
